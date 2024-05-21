@@ -111,7 +111,7 @@ namespace AngularApi.Controllers
         private string CreateJwtToken(User user)
         {
             var jwtTokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes("veryveryveryScerete.....");
+            var key = Encoding.ASCII.GetBytes("veryveryveryveryScerete123456789.....");
             var identity = new ClaimsIdentity(new Claim[]
             {
                 new Claim(ClaimTypes.Name,$"{user.Username}"),

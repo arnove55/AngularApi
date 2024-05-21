@@ -1,3 +1,4 @@
+
 using AngularApi.Context;
 using AngularApi.UtilityServices;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -28,7 +29,7 @@ builder.Services.AddDbContext<AppDbContext>(option =>
 {
     option.UseSqlServer(builder.Configuration.GetConnectionString("SqlServerConn"));
 });
-builder.Services.AddScoped<IEmailService,EmailServiceClass>();
+builder.Services.AddScoped<IEmailService, EmailServiceClass>();
 builder.Services.AddAuthentication(x =>
 {
     x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -41,7 +42,7 @@ builder.Services.AddAuthentication(x =>
     x.TokenValidationParameters = new TokenValidationParameters
     {
         ValidateIssuerSigningKey = true,
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("veryveryveryScerete.....")),
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("veryveryveryveryScerete123456789.....")),
         ValidateAudience = false,
         ValidateIssuer = false,
     };
@@ -64,6 +65,10 @@ app.UseAuthentication();
 
 app.UseAuthorization();
 
+//d
+app.UseStatusCodePages();
+
 app.MapControllers();
 
 app.Run();
+    
