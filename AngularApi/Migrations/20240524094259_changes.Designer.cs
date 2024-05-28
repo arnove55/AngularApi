@@ -4,6 +4,7 @@ using AngularApi.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AngularApi.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240524094259_changes")]
+    partial class changes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -49,7 +51,7 @@ namespace AngularApi.Migrations
 
                     b.HasIndex("ID");
 
-                    b.ToTable("bookings", (string)null);
+                    b.ToTable("Booking");
                 });
 
             modelBuilder.Entity("AngularApi.Models.Coupon", b =>
@@ -87,7 +89,7 @@ namespace AngularApi.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("coupons", (string)null);
+                    b.ToTable("Coupon");
                 });
 
             modelBuilder.Entity("AngularApi.Models.User", b =>

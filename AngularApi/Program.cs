@@ -29,6 +29,7 @@ builder.Services.AddDbContext<AppDbContext>(option =>
     option.UseSqlServer(builder.Configuration.GetConnectionString("SqlServerConn"));
 });
 builder.Services.AddScoped<IEmailService,EmailServiceClass>();
+builder.Services.AddHostedService<CouponCleanupService>();
 builder.Services.AddAuthentication(x =>
 {
     x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

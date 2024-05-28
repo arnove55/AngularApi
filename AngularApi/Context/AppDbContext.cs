@@ -11,9 +11,14 @@ namespace AngularApi.Context
         }            
 
         public DbSet<User> Users { get; set; }
+        public DbSet<Booking>Booking { get; set; }
+        public DbSet<Coupon>Coupon { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
            modelBuilder.Entity<User>().ToTable("users");
+            modelBuilder.Entity<Booking>().ToTable("bookings");
+            modelBuilder.Entity<Coupon>().ToTable("coupons");
         }
+
     }
 }
